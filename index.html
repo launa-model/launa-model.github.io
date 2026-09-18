@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <meta
+      name="description"
+      content="Meet Launa, a voice agent model from Salesforce."
+    />
+    <meta
+      property="og:title"
+      content="Launa — A voice agent model from Salesforce"
+    />
+    <meta
+      property="og:description"
+      content="Meet Launa, a voice agent model from Salesforce."
+    />
+    <meta property="og:type" content="website" />
+    <title>Launa — A voice agent model from Salesforce</title>
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+CiAgPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTIiIGZpbGw9IiNmNWYzZWQiIC8+CiAgPHBhdGgKICAgIGQ9Ik0xMCAyMXY2bTctMTJ2MThtNy0yNHYzMG03LTIxdjEybTctOXY2IgogICAgZmlsbD0ibm9uZSIKICAgIHN0cm9rZT0iI2Q2NTMyYiIKICAgIHN0cm9rZS13aWR0aD0iNCIKICAgIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICAvPgo8L3N2Zz4K" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Manrope:wght@400;500;600;650;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+:root {
+  color-scheme: light;
+  --paper: #f7f6f2;
+  --ink: #203330;
+  --muted: #67716c;
+  --accent: #b86440;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection {
+  background: #dac5ae;
+  color: var(--ink);
+}
+.page {
+  width: min(100%, 1328px);
+  margin: auto;
+  padding: 0 64px;
+}
+.site-header {
+  height: 100px;
+  border-bottom: 1px solid #dedfd6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1.8px;
+}
+.brand-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
+}
+.brand-period {
+  color: var(--accent);
+}
+.byline {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.company {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+}
+.intro {
+  padding: 48px 0 38px;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 40px;
+  align-items: end;
+}
+.eyebrow {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.7px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 20px;
+}
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+h1 {
+  font-family: "Manrope", Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(45px, 5vw, 67px);
+  line-height: 1.08;
+  letter-spacing: -2.8px;
+  margin: 0;
+}
+h1 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 1.07em;
+  color: var(--accent);
+  letter-spacing: -2.6px;
+}
+.description {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #53615a;
+  margin: 0 0 4px;
+  max-width: 260px;
+  text-wrap: pretty;
+}
+.description > span {
+  display: block;
+  margin-top: 15px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.sound-stage {
+  height: clamp(270px, 37vh, 380px);
+  border: 1px solid #284742;
+  border-radius: 10px;
+  overflow: hidden;
+  background: radial-gradient(
+    ellipse at 50% 75%,
+    #31534b 0,
+    #1c3834 42%,
+    #142b29 100%
+  );
+  position: relative;
+  isolation: isolate;
+  box-shadow: 0 12px 30px -23px #142b2940;
+}
+.sound-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23ffffff' opacity='.25' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.stage-top,
+.stage-bottom {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  font-weight: 500;
+  z-index: 2;
+  color: #bbc9bc;
+}
+.stage-top {
+  top: 15px;
+}
+.stage-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.signal-mark {
+  display: flex;
+  height: 16px;
+  align-items: center;
+  gap: 3px;
+}
+.signal-mark i {
+  width: 2px;
+  height: 6px;
+  background: #c3d5ad;
+  border-radius: 2px;
+}
+.signal-mark i:nth-child(2) {
+  height: 14px;
+}
+.signal-mark i:nth-child(3) {
+  height: 10px;
+}
+.motion-toggle {
+  background: #ffffff06;
+  border: 1px solid #afc5b833;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 91px;
+  min-height: 44px;
+  padding: 8px 14px;
+  color: #dae3d6;
+  cursor: pointer;
+  font:
+    11px "DM Sans",
+    Arial,
+    sans-serif;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.motion-toggle:hover {
+  background: #ffffff10;
+  border-color: #afc5b877;
+}
+.motion-toggle:focus-visible {
+  outline: 2px solid #e2b88c;
+  outline-offset: 4px;
+}
+.motion-toggle[hidden] {
+  display: none;
+}
+.motion-icon {
+  width: 15px;
+  height: 15px;
+}
+.play-symbol,
+.motion-toggle.is-paused .pause-symbol {
+  display: none;
+}
+.motion-toggle.is-paused .play-symbol {
+  display: block;
+}
+.stage-bottom {
+  bottom: 24px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.label-divider {
+  padding: 0 8px;
+  color: #6e8880;
+}
+.launa-art {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.art-wordmark {
+  font-family: "Manrope", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.085em;
+  font-size: clamp(140px, 16vw, 212px);
+  line-height: 1;
+  color: #eff0df;
+  position: relative;
+  padding-right: 0.085em;
+  margin-top: -16px;
+  text-shadow: 0 2px 25px #10272222;
+}
+canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px 0 30px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.footer-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-divider {
+  height: 11px;
+  width: 1px;
+  background: #c5cac1;
+}
+footer p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+footer .status-dot {
+  background: #859378;
+  width: 5px;
+  height: 5px;
+}
+@media (min-width: 1500px) {
+  .intro {
+    padding-top: 62px;
+    padding-bottom: 46px;
+  }
+}
+@media (max-width: 1000px) {
+  .page {
+    padding: 0 40px;
+  }
+  .intro {
+    grid-template-columns: 1fr 210px;
+    gap: 28px;
+  }
+  .description {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 53px;
+  }
+}
+@media (max-width: 760px) {
+  .page {
+    padding: 0 24px;
+  }
+  .site-header {
+    height: 84px;
+  }
+  .brand {
+    font-size: 29px;
+    gap: 8px;
+  }
+  .brand-icon {
+    width: 25px;
+  }
+  .byline {
+    font-size: 10px;
+    gap: 6px;
+  }
+  .company {
+    font-size: 12px;
+  }
+  .intro {
+    display: block;
+    padding: 37px 0 28px;
+  }
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    margin-bottom: 19px;
+  }
+  h1 {
+    font-size: clamp(41px, 8.8vw, 60px);
+    letter-spacing: -2px;
+  }
+  h1 em {
+    letter-spacing: -1.8px;
+  }
+  .description {
+    max-width: 340px;
+    font-size: 14px;
+    margin-top: 21px;
+    line-height: 1.7;
+  }
+  .description > span {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+  .sound-stage {
+    height: 290px;
+  }
+  .art-wordmark {
+    font-size: clamp(108px, 29vw, 188px);
+    margin-top: -10px;
+  }
+  .stage-top,
+  .stage-bottom {
+    left: 17px;
+    right: 17px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .stage-top {
+    top: 13px;
+  }
+  .stage-label {
+    gap: 7px;
+  }
+  .motion-toggle {
+    min-width: 78px;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+  .stage-bottom {
+    bottom: 20px;
+    font-size: 7px;
+    letter-spacing: 0.85px;
+  }
+  .label-divider {
+    padding: 0 4px;
+  }
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 21px 0 25px;
+    font-size: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .page {
+    padding: 0 20px;
+  }
+  .byline {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+  h1 {
+    font-size: 38px;
+  }
+  .sound-stage {
+    height: 260px;
+  }
+  .stage-label {
+    font-size: 7px;
+    letter-spacing: 0.6px;
+  }
+  .stage-bottom {
+    font-size: 6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-toggle {
+    transition: none;
+  }
+}
+
+</style>
+    
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <div class="brand" aria-label="Launa">
+          <svg
+            class="brand-icon"
+            viewBox="0 0 32 32"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 13v6M10 7v18M16 3v26M22 9v14M28 13v6"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span>launa<span class="brand-period">.</span></span>
+        </div>
+        <div class="byline">
+          <span>A model from</span><span class="company">Salesforce</span>
+        </div>
+      </header>
+      <main>
+        <div class="intro">
+          <div class="headline">
+            <p class="eyebrow">
+              <span class="status-dot"></span> INTRODUCING LAUNA
+            </p>
+            <h1>Intelligence,<br />in <em>conversation.</em></h1>
+          </div>
+          <p class="description">
+            Meet Launa, a voice agent model from Salesforce.<span
+              >A new voice for AI.</span
+            >
+          </p>
+        </div>
+        <div class="sound-stage">
+          <div class="stage-top">
+            <span class="stage-label"
+              ><span class="signal-mark" aria-hidden="true"
+                ><i></i><i></i><i></i
+              ></span>
+              THE SHAPE OF VOICE</span
+            >
+            <button
+              id="motion-toggle"
+              class="motion-toggle"
+              type="button"
+              aria-label="Pause soundwave animation"
+              hidden
+            >
+              <svg
+                class="motion-icon"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  class="pause-symbol"
+                  d="M7 5v10M13 5v10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  class="play-symbol"
+                  d="m7 4 9 6-9 6V4Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span id="motion-label">Pause</span>
+            </button>
+          </div>
+          <div class="launa-art" aria-hidden="true">
+            <canvas id="soundwave"></canvas
+            ><span class="art-wordmark">launa</span>
+          </div>
+          <div class="stage-bottom">
+            <span>A NATURAL PLACE TO BEGIN.</span
+            ><span>LAUNA <span class="label-divider">/</span> VOICE AI</span>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span class="footer-identity"
+          >Launa<span class="footer-divider"></span>A voice agent model from
+          Salesforce.</span
+        >
+        <p id="benchmark-results">
+          <span class="status-dot"></span> Benchmark results forthcoming
+        </p>
+      </footer>
+    </div>
+  <script>
+(() => {
+  const canvas = document.querySelector("#soundwave");
+  const context = canvas?.getContext("2d");
+  const toggle = document.querySelector("#motion-toggle");
+  const label = document.querySelector("#motion-label");
+  if (!context || !toggle || !label) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  // Autoplay is intentional; reduced-motion users get a gentler wave and can pause.
+  let paused = false;
+  let frame = null;
+  let phase = 0;
+  let lastTime = null;
+  let width = 0;
+  let height = 0;
+
+  function draw() {
+    context.clearRect(0, 0, width, height);
+    const middle = height * 0.53;
+    const amplitude = height * (reducedMotion.matches ? 0.19 : 0.25);
+    const samples = Math.ceil(width / 4);
+    const ribbons = 32;
+
+    for (let ribbon = 0; ribbon < ribbons; ribbon++) {
+      const layer = ribbon / (ribbons - 1);
+      context.beginPath();
+      for (let sample = 0; sample <= samples; sample++) {
+        const x = sample / samples;
+        const envelope = 0.3 + 0.7 * Math.pow(Math.sin(x * Math.PI), 0.7);
+        const carrier = Math.sin(x * Math.PI * 4 - phase + layer * 2.5);
+        const harmonic =
+          Math.sin(x * Math.PI * 7 + phase * 0.6 + layer * 1.8) * 0.24;
+        const spread = (layer - 0.5) * height * 0.2;
+        const y = middle + (carrier + harmonic) * amplitude * envelope + spread;
+        if (sample === 0) context.moveTo(x * width, y);
+        else context.lineTo(x * width, y);
+      }
+      const warm = ribbon > 22;
+      context.strokeStyle = warm
+        ? `rgba(218, 170, 119, ${0.16 + layer * 0.1})`
+        : `rgba(172, 206, 175, ${0.12 + layer * 0.17})`;
+      context.lineWidth = ribbon % 8 === 0 ? 1.2 : 0.7;
+      context.stroke();
+    }
+  }
+
+  function animate(time) {
+    if (lastTime !== null) {
+      const speed = reducedMotion.matches ? 0.00065 : 0.00115;
+      phase += Math.min(time - lastTime, 64) * speed;
+    }
+    lastTime = time;
+    draw();
+    frame = requestAnimationFrame(animate);
+  }
+
+  function sync() {
+    if (frame !== null) cancelAnimationFrame(frame);
+    frame = null;
+    lastTime = null;
+    toggle.classList.toggle("is-paused", paused);
+    toggle.setAttribute(
+      "aria-label",
+      paused ? "Play soundwave animation" : "Pause soundwave animation",
+    );
+    label.textContent = paused ? "Play" : "Pause";
+    draw();
+    if (!paused && !document.hidden) frame = requestAnimationFrame(animate);
+  }
+
+  function resize() {
+    const bounds = canvas.getBoundingClientRect();
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    width = bounds.width;
+    height = bounds.height;
+    canvas.width = Math.round(width * ratio);
+    canvas.height = Math.round(height * ratio);
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+    draw();
+  }
+
+  toggle.hidden = false;
+  toggle.addEventListener("click", () => {
+    paused = !paused;
+    sync();
+  });
+  reducedMotion.addEventListener("change", draw);
+  document.addEventListener("visibilitychange", sync);
+  new ResizeObserver(resize).observe(canvas);
+  resize();
+  sync();
+})();
+
+</script>
+</body>
+</html>
