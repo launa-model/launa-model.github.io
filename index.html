@@ -385,7 +385,7 @@ a:focus-visible, .comparison-controls button:focus-visible, .comparison-scroll:f
   border-radius: 10px;
 }
 .comparison-table {
-  width: calc(var(--benchmark-width) + 8 * var(--model-width));
+  width: calc(var(--benchmark-width) + 7 * var(--model-width));
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
@@ -917,10 +917,9 @@ footer .status-dot {
             <div class="comparison-scroll" id="model-comparison" role="region" aria-label="Voice model benchmark comparison" aria-describedby="comparison-hint comparison-notes" tabindex="0">
               <table class="comparison-table">
                 <caption class="visually-hidden">Launa v1 benchmark comparison. Scores reported by the Launa team. Highlighted cells mark the best reported score in a comparable row.</caption>
-                <colgroup><col class="benchmark-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /></colgroup>
+                <colgroup><col class="benchmark-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /></colgroup>
                 <thead><tr><th scope="col" class="benchmark-name">Benchmark</th>
 <th scope="col" class="model-name launa-column">Launa v1</th>
-<th scope="col" class="model-name">Sonic Smol<br><small>E4B</small></th>
 <th scope="col" class="model-name">Grok Voice 2.0</th>
 <th scope="col" class="model-name">Inkling<br><small>big</small></th>
 <th scope="col" class="model-name">Inkling<br><small>small</small></th>
@@ -928,10 +927,10 @@ footer .status-dot {
 <th scope="col" class="model-name">Gemini 3.1 Pro</th>
 <th scope="col" class="model-name">GPT-realtime-2</th>
 </tr></thead>
-<tbody><tr class="category-row"><th colspan="9" scope="rowgroup"><span>Service agents &amp; conversational intelligence</span></th></tr>
+<tbody><tr class="category-row"><th colspan="8" scope="rowgroup"><span>Service agents &amp; conversational intelligence</span></th></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Tau Voice<small>Sierra.ai</small></th>
 <td class="score-cell launa-column"><span class="score-value">62.3%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell"><span class="score-value">60.7%</span></td>
 <td class="score-cell"><span class="score-value">58.80%</span></td>
 <td class="score-cell best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">66.70%</span></td>
@@ -941,7 +940,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Tau Voice<small>Airline only</small></th>
 <td class="score-cell launa-column"><span class="score-value">60.0%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell"><span class="score-value">48.0%</span></td>
 <td class="score-cell"><span class="score-value">58.00%</span></td>
 <td class="score-cell"><span class="score-value">66.00%</span></td>
@@ -951,7 +950,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">EVA Bench<small>Clean customer service · mean score</small></th>
 <td class="score-cell launa-column"><span class="score-value">0.7000</span><small>0.6449 / 0.7551</small></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">0.7385</span><small>0.7203 / 0.7566</small></td>
 <td class="score-cell"><span class="score-value">0.6296</span><small>0.6879 / 0.5715</small></td>
 <td class="score-cell"><span class="score-value">0.5949</span><small>0.6261 / 0.5641</small></td>
@@ -961,7 +960,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Audio MultiChallenge<small></small></th>
 <td class="score-cell launa-column"><span class="score-value">59.07%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell"><span class="score-value">35.2%</span></td>
 <td class="score-cell"><span class="score-value">46.2%</span></td>
 <td class="score-cell"><span class="score-value">40.0%</span></td>
@@ -970,10 +969,10 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">30.5%</span></td>
 </tr>
 </tbody>
-<tbody><tr class="category-row"><th colspan="9" scope="rowgroup"><span>Employee agents · internal Slack</span></th></tr>
+<tbody><tr class="category-row"><th colspan="8" scope="rowgroup"><span>Employee agents · internal Slack</span></th></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Slackbot Voice<small>Internal evaluation</small></th>
 <td class="score-cell launa-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">96.5%</span></td>
-<td class="score-cell"><span class="score-value">87.70%</span></td>
+
 <td class="score-cell"><span class="score-value">50.0%</span></td>
 <td class="score-cell"><span class="score-value">49.2%</span></td>
 <td class="score-cell"><span class="score-value">51.9%</span></td>
@@ -983,7 +982,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Slackbot Voice Multilingual<small>Internal evaluation †</small></th>
 <td class="score-cell launa-column"><span class="score-value">42.2%</span><small>Multilang: 95.3%</small></td>
-<td class="score-cell"><span class="score-value">45.0%</span></td>
+
 <td class="score-cell"><span class="score-value">52.5%</span></td>
 <td class="score-cell"><span class="score-value">58.2%</span></td>
 <td class="score-cell"><span class="score-value">42.5%</span></td>
@@ -992,10 +991,10 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">91.4%</span></td>
 </tr>
 </tbody>
-<tbody><tr class="category-row"><th colspan="9" scope="rowgroup"><span>General reasoning, deduction &amp; safety</span></th></tr>
+<tbody><tr class="category-row"><th colspan="8" scope="rowgroup"><span>General reasoning, deduction &amp; safety</span></th></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://matthewcym.github.io/VoiceBench/">VoiceBench <span aria-hidden="true">↗</span></a><small>Updated for v4</small></th>
 <td class="score-cell launa-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">90.60%</span></td>
-<td class="score-cell"><span class="score-value">80.9%</span></td>
+
 <td class="score-cell"><span class="score-value">85.8%</span></td>
 <td class="score-cell"><span class="score-value">76.6%</span></td>
 <td class="score-cell"><span class="score-value">71.9%</span></td>
@@ -1005,7 +1004,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">BigBench Audio<small></small></th>
 <td class="score-cell launa-column"><span class="score-value">68.3%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell"><span class="score-value">63.3%</span></td>
 <td class="score-cell"><span class="score-value">71.1%</span></td>
 <td class="score-cell"><span class="score-value">59.9%</span></td>
@@ -1014,10 +1013,10 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">87.5%</span></td>
 </tr>
 </tbody>
-<tbody><tr class="category-row"><th colspan="9" scope="rowgroup"><span>Multilingual &amp; non-English</span></th></tr>
+<tbody><tr class="category-row"><th colspan="8" scope="rowgroup"><span>Multilingual &amp; non-English</span></th></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Multilingual understanding<small>FLEURS ASR test set †</small></th>
 <td class="score-cell launa-column"><span class="score-value">6.53</span></td>
-<td class="score-cell"><span class="score-value">7.87</span></td>
+
 <td class="score-cell"><span class="score-value">5.68</span></td>
 <td class="score-cell"><span class="score-value">5.96</span></td>
 <td class="score-cell"><span class="score-value">6.37</span></td>
@@ -1027,7 +1026,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Multilingual tool calling<small>Speech-BFCL</small></th>
 <td class="score-cell launa-column"><span class="score-value">72.9%</span></td>
-<td class="score-cell"><span class="score-value">70.1</span></td>
+
 <td class="score-cell"><span class="score-value">64.8%</span></td>
 <td class="score-cell"><span class="score-value">65.8%</span></td>
 <td class="score-cell"><span class="score-value">62.1%</span></td>
@@ -1036,10 +1035,10 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">65.2%</span></td>
 </tr>
 </tbody>
-<tbody><tr class="category-row"><th colspan="9" scope="rowgroup"><span>Non-agentic tasks</span></th></tr>
+<tbody><tr class="category-row"><th colspan="8" scope="rowgroup"><span>Non-agentic tasks</span></th></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Conversational etiquette<small>Fluid v1.5</small></th>
 <td class="score-cell launa-column"><span class="score-value">45.5%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell"><span class="score-value">49.2%</span></td>
 <td class="score-cell"><span class="score-value">48.3%</span></td>
 <td class="score-cell best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">62.1%</span></td>
@@ -1049,7 +1048,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Music benchmark<small>MMAU</small></th>
 <td class="score-cell launa-column"><span class="score-value">30.5%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell"><span class="score-value">59.3%</span></td>
 <td class="score-cell"><span class="score-value">73.4%</span></td>
 <td class="score-cell"><span class="score-value">75.4%</span></td>
@@ -1059,7 +1058,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Meeting summarization<small>MeetingBank · R-L</small></th>
 <td class="score-cell launa-column"><span class="score-value">24.1%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">24.2%</span></td>
 <td class="score-cell"><span class="score-value">19.2%</span></td>
 <td class="score-cell"><span class="score-value">21.8%</span></td>
@@ -1069,7 +1068,7 @@ footer .status-dot {
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Environmental sound classification<small>ESC-50</small></th>
 <td class="score-cell launa-column"><span class="score-value">4.4%</span></td>
-<td class="score-cell unreported"><span class="score-value">—</span></td>
+
 <td class="score-cell"><span class="score-value">2.1%</span></td>
 <td class="score-cell"><span class="score-value">73.0%</span></td>
 <td class="score-cell"><span class="score-value">79.7%</span></td>
