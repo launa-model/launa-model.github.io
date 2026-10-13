@@ -104,8 +104,9 @@ body {
 h1 {
   font-family: "Inter Tight", Arial, sans-serif;
   font-weight: 400;
-  /* Scales with the content width so the headline keeps the same two-line shape. */
-  font-size: clamp(32px, 6cqi, 72px);
+  /* Scales with the content width so the headline fits on one line. */
+  font-size: clamp(32px, 4.9cqi, 72px);
+  white-space: nowrap;
   line-height: 1.08;
   letter-spacing: -0.025em;
   margin: 0;
@@ -718,6 +719,10 @@ footer .status-dot {
   }
   .intro {
     padding: 37px 0 28px;
+  }
+  h1 {
+    font-size: 32px;
+    white-space: normal;
   }
   .eyebrow {
     font-size: 9px;
