@@ -823,7 +823,7 @@ footer .status-dot {
               <p class="eyebrow">MODEL CARD</p>
               <h2 id="model-heading">
                 Launa
-                <span class="variant-picker">
+                <span class="variant-picker" data-picker="variant">
                   <button
                     type="button"
                     class="variant-button"
@@ -832,7 +832,7 @@ footer .status-dot {
                     aria-expanded="false"
                     aria-controls="variant-menu"
                   >
-                    <span id="variant-label">Omni</span>
+                    <span id="variant-label" data-picker-label>Omni</span>
                     <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
                       <path
                         d="m3 4.5 3 3 3-3"
@@ -848,7 +848,37 @@ footer .status-dot {
                     <button type="button" role="menuitemradio" aria-checked="false" tabindex="-1">Transcribe</button>
                   </span>
                 </span>
-                in comparison:
+                <span class="heading-omni">in comparison:</span>
+                <span class="heading-transcribe" hidden>
+                  in comparison with
+                  <span class="variant-picker" data-picker="source">
+                    <button
+                      type="button"
+                      class="variant-button"
+                      id="source-button"
+                      aria-haspopup="menu"
+                      aria-expanded="false"
+                      aria-controls="source-menu"
+                    >
+                      <span id="source-label" data-picker-label>all</span>
+                      <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path
+                        d="m3 4.5 3 3 3-3"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    </button>
+                    <span class="variant-menu" id="source-menu" role="menu" aria-labelledby="source-button">
+                      <button type="button" role="menuitemradio" aria-checked="true" tabindex="-1" data-value="all">all</button>
+                      <button type="button" role="menuitemradio" aria-checked="false" tabindex="-1" data-value="open">open-source</button>
+                      <button type="button" role="menuitemradio" aria-checked="false" tabindex="-1" data-value="closed">closed-source</button>
+                    </span>
+                  </span>
+                  models
+                </span>
               </h2>
             </div>
           </div>
@@ -941,99 +971,115 @@ footer .status-dot {
           <div class="comparison-panel" id="panel-transcribe" data-variant="Transcribe" data-controls="below" hidden>
             <div class="comparison-frame">
               <div class="comparison-scroll" id="transcribe-comparison" role="region" aria-label="Speech recognition benchmark comparison" aria-describedby="transcribe-notes" tabindex="0">
-                <table class="comparison-table" style="--model-count: 6">
-                  <caption class="visually-hidden">Launa Transcribe v2 English speech recognition comparison. Lower WER and UER are better; higher TSR is better. Highlighted cells mark the best score in each row.</caption>
-                  <colgroup><col class="benchmark-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /></colgroup>
+                <table class="comparison-table" style="--model-count: 10">
+                  <caption class="visually-hidden">Launa Transcribe v2 English speech recognition comparison against commercial and open-source models. Lower WER and UER are better. Highlighted cells mark the best score in each row.</caption>
+                  <colgroup><col class="benchmark-column" /><col class="model-column" /><col class="model-column" data-source="closed" /><col class="model-column" data-source="open" /><col class="model-column" data-source="closed" /><col class="model-column" data-source="closed" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /></colgroup>
 <thead><tr><th scope="col" class="benchmark-name">Benchmark</th>
 <th scope="col" class="model-name launa-column">Launa Transcribe v2<small>Salesforce</small></th>
-<th scope="col" class="model-name">Ink 2<small>Cartesia</small></th>
-<th scope="col" class="model-name">Voxtral Small<small>Mistral AI</small></th>
-<th scope="col" class="model-name">Universal-3.5 Pro<small>AssemblyAI</small></th>
-<th scope="col" class="model-name">Nova-3<small>Deepgram</small></th>
-<th scope="col" class="model-name">Scribe v2<small>ElevenLabs</small></th>
+<th scope="col" class="model-name" data-source="closed">Ink 2<small>Cartesia</small></th>
+<th scope="col" class="model-name" data-source="open">Voxtral Small<small>Mistral AI</small></th>
+<th scope="col" class="model-name" data-source="closed">Universal-3.5 Pro<small>AssemblyAI</small></th>
+<th scope="col" class="model-name" data-source="closed">Nova-3<small>Deepgram</small></th>
+<th scope="col" class="model-name" data-source="open">Granite Speech 4.1 2B<small>IBM</small></th>
+<th scope="col" class="model-name" data-source="open">Voxtral Mini<small>Mistral AI</small></th>
+<th scope="col" class="model-name" data-source="open">Parakeet CTC 1.1B<small>NVIDIA</small></th>
+<th scope="col" class="model-name" data-source="open">Canary 1B v2<small>NVIDIA</small></th>
+<th scope="col" class="model-name" data-source="open">Whisper large-v3<small>OpenAI</small></th>
 </tr></thead>
 <tbody>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://github.com/sierra-research/mu-bench">MU-Bench English</a><small>Meaning-changing UER · 817 English utterances</small></th>
 <td class="score-cell launa-column"><span class="score-value">2.57%</span></td>
-<td class="score-cell"><span class="score-value">8.20%</span></td>
-<td class="score-cell"><span class="score-value">2.33%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">2.08%</span></td>
-<td class="score-cell"><span class="score-value">3.06%</span></td>
-<td class="score-cell"><span class="score-value">2.45%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">8.20%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">2.33%</span></td>
+<td class="score-cell best-score" data-source="closed"><span class="visually-hidden">Best score: </span><span class="score-value">2.08%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">3.06%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">5.63%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">3.55%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">5.75%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">5.39%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">6.85%</span></td>
 </tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://github.com/DSP-AGH/HALAS">HALAS corrected test</a><small>WER · Corrected test references</small></th>
+<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://github.com/DSP-AGH/HALAS">HALAS corrected test</a><small>Corrected test references</small></th>
 <td class="score-cell launa-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">28.70%</span></td>
-<td class="score-cell"><span class="score-value">30.73%</span></td>
-<td class="score-cell"><span class="score-value">30.03%</span></td>
-<td class="score-cell"><span class="score-value">29.43%</span></td>
-<td class="score-cell"><span class="score-value">36.42%</span></td>
-<td class="score-cell"><span class="score-value">33.79%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">30.73%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">30.03%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">29.43%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">36.42%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">59.01%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">32.74%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">40.16%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">32.71%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">60.40%</span></td>
 </tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/google/fleurs">FLEURS English</a><small>WER · English test split</small></th>
+<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/google/fleurs">FLEURS English</a><small>English test split</small></th>
 <td class="score-cell launa-column"><span class="score-value">3.33%</span></td>
-<td class="score-cell"><span class="score-value">4.72%</span></td>
-<td class="score-cell"><span class="score-value">2.67%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">2.55%</span></td>
-<td class="score-cell"><span class="score-value">4.97%</span></td>
-<td class="score-cell"><span class="score-value">2.63%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">4.72%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">2.67%</span></td>
+<td class="score-cell best-score" data-source="closed"><span class="visually-hidden">Best score: </span><span class="score-value">2.55%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">4.97%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">3.93%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">3.37%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">5.30%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">4.47%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">4.01%</span></td>
 </tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/ArtificialAnalysis/VoxPopuli-Cleaned-AA">VoxPopuli-Cleaned-AA</a><small>WER · 628 English clips</small></th>
-<td class="score-cell launa-column"><span class="score-value">1.66%</span></td>
-<td class="score-cell"><span class="score-value">2.06%</span></td>
-<td class="score-cell"><span class="score-value">2.28%</span></td>
-<td class="score-cell"><span class="score-value">2.22%</span></td>
-<td class="score-cell"><span class="score-value">2.95%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">1.53%</span></td>
+<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/ArtificialAnalysis/VoxPopuli-Cleaned-AA">VoxPopuli-Cleaned-AA</a><small>628 English clips</small></th>
+<td class="score-cell launa-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">1.66%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">2.06%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">2.28%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">2.22%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">2.95%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">4.53%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">2.44%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">3.43%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">4.62%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">3.00%</span></td>
 </tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/ArtificialAnalysis/Earnings22-Cleaned-AA">Earnings22-Cleaned-AA</a><small>WER · 6 earnings calls</small></th>
+<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/ArtificialAnalysis/Earnings22-Cleaned-AA">Earnings22-Cleaned-AA</a><small>6 earnings calls</small></th>
 <td class="score-cell launa-column"><span class="score-value">4.94%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">4.77%</span></td>
-<td class="score-cell"><span class="score-value">5.94%</span></td>
-<td class="score-cell"><span class="score-value">7.11%</span></td>
-<td class="score-cell"><span class="score-value">10.94%</span></td>
-<td class="score-cell"><span class="score-value">5.65%</span></td>
+<td class="score-cell best-score" data-source="closed"><span class="visually-hidden">Best score: </span><span class="score-value">4.77%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">5.94%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">7.11%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">10.94%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">9.96%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">6.55%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">12.19%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">8.28%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">8.09%</span></td>
 </tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/VoiceArena/MonsoonASR-Open-ASR-leaderboard-en-IN">Monsoon Open ASR en-IN</a><small>WER · Indian English public test</small></th>
+<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/VoiceArena/MonsoonASR-Open-ASR-leaderboard-en-IN">Monsoon Open ASR en-IN</a><small>Indian English public test</small></th>
 <td class="score-cell launa-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">4.17%</span></td>
-<td class="score-cell"><span class="score-value">5.03%</span></td>
-<td class="score-cell"><span class="score-value">4.43%</span></td>
-<td class="score-cell"><span class="score-value">4.21%</span></td>
-<td class="score-cell"><span class="score-value">5.62%</span></td>
-<td class="score-cell"><span class="score-value">4.36%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">5.03%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">4.43%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">4.21%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">5.62%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">5.49%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">5.96%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">6.17%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">6.03%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">4.80%</span></td>
 </tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://github.com/openbenchmarks-labs/voice-code-bench">VoiceCodeBench</a><small>TSR · Structured values from workplace speech</small></th>
-<td class="score-cell launa-column"><span class="score-value">57.00%</span></td>
-<td class="score-cell"><span class="score-value">64.00%</span></td>
-<td class="score-cell"><span class="score-value">56.33%</span></td>
-<td class="score-cell"><span class="score-value">43.67%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">67.00%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">67.00%</span></td>
-</tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://groups.inf.ed.ac.uk/ami/corpus/">AMI IHM test</a><small>WER · Individual headset microphone</small></th>
+<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://groups.inf.ed.ac.uk/ami/corpus/">AMI IHM test</a><small>Individual headset microphone</small></th>
 <td class="score-cell launa-column"><span class="score-value">14.00%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">11.54%</span></td>
-<td class="score-cell"><span class="score-value">18.06%</span></td>
-<td class="score-cell"><span class="score-value">15.03%</span></td>
-<td class="score-cell"><span class="score-value">16.62%</span></td>
-<td class="score-cell"><span class="score-value">15.36%</span></td>
-</tr>
-<tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://www.openslr.org/12">LibriSpeech test-clean</a><small>WER · Clean read speech</small></th>
-<td class="score-cell launa-column"><span class="score-value">2.06%</span></td>
-<td class="score-cell"><span class="score-value">1.77%</span></td>
-<td class="score-cell"><span class="score-value">1.68%</span></td>
-<td class="score-cell"><span class="score-value">2.08%</span></td>
-<td class="score-cell"><span class="score-value">2.66%</span></td>
-<td class="score-cell best-score"><span class="visually-hidden">Best score: </span><span class="score-value">1.63%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">11.54%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">18.06%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">15.03%</span></td>
+<td class="score-cell" data-source="closed"><span class="score-value">16.62%</span></td>
+<td class="score-cell best-score" data-source="open"><span class="visually-hidden">Best score: </span><span class="score-value">10.31%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">18.91%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">18.52%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">17.94%</span></td>
+<td class="score-cell" data-source="open"><span class="score-value">18.31%</span></td>
 </tr>
 </tbody>
-                </table>
+</table>
                 <div class="launa-outline" aria-hidden="true"></div>
               </div>
             </div>
             <div class="comparison-legend" aria-label="Table legend">
               <span><i class="legend-best" aria-hidden="true"></i>Best score per row</span>
               <span><i class="legend-launa" aria-hidden="true"></i>Launa Transcribe v2</span>
-              <span>↓ WER / UER · ↑ TSR</span>
+              <span>↓ Lower WER / UER is better</span>
             </div>
             <div class="comparison-notes" id="transcribe-notes">
               <p>Scores follow the public <a href="https://artificialanalysis.ai/methodology/speech-to-text">Artificial Analysis methodology</a>: reference and hypothesis are normalized, WER is computed per clip, then averaged weighted by audio duration. Monsoon en-IN reports duration-weighted WER rather than the dataset’s corpus WER.</p>
@@ -1151,63 +1197,111 @@ footer .status-dot {
 })();
 
 (() => {
-  const button = document.querySelector("#variant-button");
-  const label = document.querySelector("#variant-label");
-  const menu = document.querySelector("#variant-menu");
-  if (!button || !label || !menu) return;
+  // Shared behaviour for every pill dropdown; selections are broadcast as "pickerchange".
+  const pickers = [...document.querySelectorAll(".variant-picker")];
 
-  const picker = button.parentElement;
-  const items = [...menu.querySelectorAll('[role="menuitemradio"]')];
+  for (const picker of pickers) {
+    const button = picker.querySelector(".variant-button");
+    const label = button.querySelector("[data-picker-label]");
+    const menu = picker.querySelector(".variant-menu");
+    const items = [...menu.querySelectorAll('[role="menuitemradio"]')];
 
-  function setOpen(open, { focusItem = false } = {}) {
-    picker.classList.toggle("is-open", open);
-    button.setAttribute("aria-expanded", String(open));
-    if (open && focusItem) {
-      (items.find((item) => item.getAttribute("aria-checked") === "true") ?? items[0]).focus();
+    function setOpen(open, { focusItem = false } = {}) {
+      picker.classList.toggle("is-open", open);
+      button.setAttribute("aria-expanded", String(open));
+      if (open && focusItem) {
+        (items.find((item) => item.getAttribute("aria-checked") === "true") ?? items[0]).focus();
+      }
     }
-  }
 
-  function select(item) {
-    for (const option of items) {
-      option.setAttribute("aria-checked", String(option === item));
-    }
-    label.textContent = item.textContent;
-    for (const panel of document.querySelectorAll(".comparison-panel")) {
-      panel.hidden = panel.dataset.variant !== item.textContent;
-    }
-    document.dispatchEvent(new CustomEvent("variantchange"));
-    setOpen(false);
-    button.focus();
-  }
-
-  button.addEventListener("click", () => {
-    setOpen(!picker.classList.contains("is-open"), { focusItem: true });
-  });
-  button.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-      event.preventDefault();
-      setOpen(true, { focusItem: true });
-    }
-  });
-  menu.addEventListener("click", (event) => {
-    const item = event.target.closest('[role="menuitemradio"]');
-    if (item) select(item);
-  });
-  menu.addEventListener("keydown", (event) => {
-    const index = items.indexOf(document.activeElement);
-    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-      event.preventDefault();
-      const step = event.key === "ArrowDown" ? 1 : -1;
-      items[(index + step + items.length) % items.length].focus();
-    } else if (event.key === "Escape") {
+    function select(item) {
+      for (const option of items) {
+        option.setAttribute("aria-checked", String(option === item));
+      }
+      label.textContent = item.textContent;
       setOpen(false);
       button.focus();
-    } else if (event.key === "Tab") {
-      setOpen(false);
+      document.dispatchEvent(
+        new CustomEvent("pickerchange", {
+          detail: { picker: picker.dataset.picker, value: item.dataset.value ?? item.textContent },
+        }),
+      );
     }
-  });
-  document.addEventListener("click", (event) => {
-    if (!picker.contains(event.target)) setOpen(false);
+
+    button.addEventListener("click", () => {
+      setOpen(!picker.classList.contains("is-open"), { focusItem: true });
+    });
+    button.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        setOpen(true, { focusItem: true });
+      }
+    });
+    menu.addEventListener("click", (event) => {
+      const item = event.target.closest('[role="menuitemradio"]');
+      if (item) select(item);
+    });
+    menu.addEventListener("keydown", (event) => {
+      const index = items.indexOf(document.activeElement);
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const step = event.key === "ArrowDown" ? 1 : -1;
+        items[(index + step + items.length) % items.length].focus();
+      } else if (event.key === "Escape") {
+        setOpen(false);
+        button.focus();
+      } else if (event.key === "Tab") {
+        setOpen(false);
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (!picker.contains(event.target)) setOpen(false);
+    });
+  }
+
+  const omniHeading = document.querySelector(".heading-omni");
+  const transcribeHeading = document.querySelector(".heading-transcribe");
+  const transcribeScroller = document.querySelector("#transcribe-comparison");
+  const transcribeTable = transcribeScroller?.querySelector("table");
+
+  function showVariant(variant) {
+    for (const panel of document.querySelectorAll(".comparison-panel")) {
+      panel.hidden = panel.dataset.variant !== variant;
+    }
+    if (omniHeading) omniHeading.hidden = variant !== "Omni";
+    if (transcribeHeading) transcribeHeading.hidden = variant !== "Transcribe";
+  }
+
+  // Show only open- or closed-source columns (Launa always stays) and re-mark each row's best score.
+  function filterSource(source) {
+    if (!transcribeTable) return;
+    for (const element of transcribeTable.querySelectorAll("[data-source]")) {
+      element.hidden = source !== "all" && element.dataset.source !== source;
+    }
+    const visibleModels = transcribeTable.querySelectorAll("thead .model-name:not([hidden])").length;
+    transcribeTable.style.setProperty("--model-count", visibleModels);
+    for (const cell of transcribeTable.querySelectorAll(".score-cell")) {
+      cell.classList.remove("best-score");
+      cell.querySelector(".visually-hidden")?.remove();
+    }
+
+    for (const row of transcribeTable.querySelectorAll(".benchmark-row")) {
+      const cells = [...row.querySelectorAll(".score-cell:not([hidden])")];
+      const scores = cells.map((cell) => parseFloat(cell.querySelector(".score-value").textContent));
+      const best = Math.min(...scores); // every Transcribe metric is lower-is-better
+      cells.forEach((cell, index) => {
+        if (scores[index] !== best) return;
+        cell.classList.add("best-score");
+        cell.insertAdjacentHTML("afterbegin", '<span class="visually-hidden">Best score: </span>');
+      });
+    }
+    transcribeScroller.scrollLeft = 0;
+  }
+
+  document.addEventListener("pickerchange", ({ detail }) => {
+    if (detail.picker === "variant") showVariant(detail.value);
+    if (detail.picker === "source") filterSource(detail.value);
+    document.dispatchEvent(new CustomEvent("variantchange"));
   });
 })();
 
@@ -1241,6 +1335,18 @@ footer .status-dot {
     toolbar.classList.toggle("is-below", below);
   }
 
+  // Widen model columns when there are too few to fill the frame, so the table always spans it.
+  const modelCard = document.querySelector(".model-card");
+  function fitColumns(scroller) {
+    const table = scroller.querySelector("table");
+    const count = table.querySelectorAll("thead .model-name:not([hidden])").length;
+    const styles = getComputedStyle(modelCard);
+    const minWidth = parseFloat(styles.getPropertyValue("--model-width"));
+    const labelWidth = parseFloat(styles.getPropertyValue("--benchmark-width"));
+    const width = Math.max(minWidth, (scroller.clientWidth - labelWidth) / count);
+    scroller.style.setProperty("--model-width", `${Math.floor(width)}px`);
+  }
+
   function updateControls() {
     const scroller = activeScroller();
     const maxScroll = scroller.scrollWidth - scroller.clientWidth;
@@ -1267,10 +1373,14 @@ footer .status-dot {
   next.addEventListener("click", () => move(1));
   for (const scroller of scrollers) {
     scroller.addEventListener("scroll", updateControls, { passive: true });
-    new ResizeObserver(updateControls).observe(scroller);
+    new ResizeObserver(() => {
+      fitColumns(scroller);
+      updateControls();
+    }).observe(scroller);
   }
   document.addEventListener("variantchange", () => {
     placeToolbar();
+    scrollers.forEach(fitColumns);
     updateControls();
   });
   updateControls();
