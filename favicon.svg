@@ -1,5 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <rect width="48" height="48" rx="12" fill="#143e8a" />
+  <!-- Matches the .sound-stage radial gradient (ellipse at 50% 75%). -->
+  <radialGradient id="stage" cx="0.5" cy="0.75" r="0.9">
+    <stop offset="0" stop-color="#1f56b3" />
+    <stop offset="0.42" stop-color="#143e8a" />
+    <stop offset="1" stop-color="#0c2a63" />
+  </radialGradient>
+  <rect width="48" height="48" rx="12" fill="url(#stage)" />
   <path
     d="M10 21v6m7-12v18m7-24v30m7-21v12m7-9v6"
     fill="none"
