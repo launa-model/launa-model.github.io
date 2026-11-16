@@ -6,20 +6,20 @@
     <meta name="theme-color" content="#ffffff" />
     <meta
       name="description"
-      content="Introducing Launa Omni v1 and Launa Transcribe v2, sovereign AI voice models from Salesforce x Arcanum, benchmarked against leading voice models."
+      content="Introducing SOV-Omni-1 and SOV-Transcribe-1, sovereign AI voice models from Salesforce x Arcanum, benchmarked against leading voice models."
     />
     <link rel="canonical" href="https://launa-model.github.io/" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Launa" />
+    <meta property="og:site_name" content="SOV" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://launa-model.github.io/" />
     <meta
       property="og:title"
-      content="Launa — Sovereign AI Voice Models from Salesforce"
+      content="SOV — Sovereign AI Voice Models from Salesforce"
     />
     <meta
       property="og:description"
-      content="Introducing Launa Omni v1 and Launa Transcribe v2, sovereign AI voice models from Salesforce x Arcanum, benchmarked against leading voice models."
+      content="Introducing SOV-Omni-1 and SOV-Transcribe-1, sovereign AI voice models from Salesforce x Arcanum, benchmarked against leading voice models."
     />
     <meta property="og:image" content="https://launa-model.github.io/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -27,10 +27,10 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Introducing Launa Omni v1 and Launa Transcribe v2, over a blue soundwave."
+      content="Introducing SOV-Omni-1 and SOV-Transcribe-1, over a dark soundwave."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Launa — Sovereign AI Voice Models from Salesforce</title>
+    <title>SOV — Sovereign AI Voice Models from Salesforce</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -51,15 +51,15 @@
             "@type": "WebSite",
             "@id": "https://launa-model.github.io/#website",
             "url": "https://launa-model.github.io/",
-            "name": "Launa",
+            "name": "SOV",
             "publisher": { "@id": "https://www.salesforce.com/#organization" }
           },
           {
             "@type": "WebPage",
             "@id": "https://launa-model.github.io/#webpage",
             "url": "https://launa-model.github.io/",
-            "name": "Launa — Sovereign AI Voice Models from Salesforce",
-            "description": "Introducing Launa Omni v1 and Launa Transcribe v2, sovereign AI voice models from Salesforce x Arcanum, benchmarked against leading voice models.",
+            "name": "SOV — Sovereign AI Voice Models from Salesforce",
+            "description": "Introducing SOV-Omni-1 and SOV-Transcribe-1, sovereign AI voice models from Salesforce x Arcanum, benchmarked against leading voice models.",
             "inLanguage": "en-US",
             "datePublished": "2026-10-12",
             "isPartOf": { "@id": "https://launa-model.github.io/#website" },
@@ -75,8 +75,8 @@
             ],
             "publisher": { "@id": "https://www.salesforce.com/#organization" },
             "about": [
-              { "@type": "Thing", "name": "Launa Omni v1" },
-              { "@type": "Thing", "name": "Launa Transcribe v2" }
+              { "@type": "Thing", "name": "SOV-Omni-1" },
+              { "@type": "Thing", "name": "SOV-Transcribe-1" }
             ]
           }
         ]
@@ -184,25 +184,38 @@ h1 em {
 }
 .sound-stage {
   height: clamp(270px, 37vh, 380px);
-  border: 1px solid #1c3f7a;
+  border: 1px solid #1a2333;
   border-radius: 10px;
   overflow: hidden;
   background: radial-gradient(
     ellipse at 50% 75%,
-    #1f56b3 0,
-    #143e8a 42%,
-    #0c2a63 100%
+    #15233d 0,
+    #0b1322 45%,
+    #05080f 100%
   );
   position: relative;
   isolation: isolate;
-  box-shadow: 0 12px 30px -23px #0c2a6340;
+  box-shadow: 0 16px 36px -22px #05080f80;
+}
+/* Faint measurement grid, fading out toward the edges. */
+.sound-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#9fb3d10d 1px, transparent 1px),
+    linear-gradient(90deg, #9fb3d10d 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center;
+  mask-image: radial-gradient(ellipse at 50% 55%, #000 30%, transparent 80%);
 }
 .sound-stage::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.16;
+  opacity: 0.1;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23ffffff' opacity='.25' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
 }
 .stage-bottom {
@@ -216,7 +229,7 @@ h1 em {
   letter-spacing: 1.4px;
   font-weight: 500;
   z-index: 2;
-  color: #c6d7f5;
+  color: #8792a6;
 }
 .stage-bottom {
   bottom: 24px;
@@ -225,9 +238,9 @@ h1 em {
 }
 .label-divider {
   padding: 0 8px;
-  color: #7c98cc;
+  color: #3d4859;
 }
-.launa-art {
+.sov-art {
   position: absolute;
   inset: 0;
   display: flex;
@@ -244,10 +257,10 @@ h1 em {
   font-size: clamp(30px, 5.4vw, 72px);
   line-height: 1.05;
   letter-spacing: -0.03em;
-  color: #f1f5fd;
+  color: #e9edf4;
   text-align: center;
   text-wrap: balance;
-  text-shadow: 0 2px 25px #08183a22;
+  text-shadow: 0 2px 30px #05080fcc;
 }
 .art-kicker {
   display: block;
@@ -255,7 +268,7 @@ h1 em {
   font: 500 clamp(11px, 1.1vw, 14px) / 1 "Inter", Arial, sans-serif;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c6d7f5;
+  color: #8792a6;
 }
 canvas {
   position: absolute;
@@ -291,6 +304,10 @@ canvas {
   position: relative;
   display: inline-block;
   margin-inline: 0.16em;
+}
+/* Sits right after "SOV-", so it shouldn't push away from the hyphen. */
+.variant-picker[data-picker="variant"] {
+  margin-inline-start: 0.04em;
 }
 .variant-button {
   display: inline-flex;
@@ -510,19 +527,19 @@ a:focus-visible, .variant-button:focus-visible, .comparison-controls button:focu
   font: 400 11px/1.5 "Inter", Arial, sans-serif;
   color: var(--muted);
 }
-.comparison-table .launa-column {
+.comparison-table .sov-column {
   background: #f5f9ff;
 }
-.comparison-table thead .launa-column {
+.comparison-table thead .sov-column {
   border-radius: 10px 10px 0 0;
   font-weight: 700;
   color: #174ea6;
 }
-.comparison-table tbody:last-child tr:last-child .launa-column {
+.comparison-table tbody:last-child tr:last-child .sov-column {
   border-bottom-color: transparent;
   border-radius: 0 0 10px 10px;
 }
-.launa-outline {
+.sov-outline {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -564,12 +581,12 @@ a:focus-visible, .variant-button:focus-visible, .comparison-controls button:focu
 .comparison-table .benchmark-name small:empty {
   display: none;
 }
-.comparison-table a, footer a {
+.comparison-table a, .comparison-notes a, footer a {
   color: inherit;
   text-decoration-color: #bdc1c6;
   text-underline-offset: 3px;
 }
-.comparison-table a:hover, footer a:hover {
+.comparison-table a:hover, .comparison-notes a:hover, footer a:hover {
   color: var(--accent);
 }
 .score-cell {
@@ -585,7 +602,7 @@ a:focus-visible, .variant-button:focus-visible, .comparison-controls button:focu
   font-weight: 400;
   color: #5f6368;
 }
-.score-cell.launa-column {
+.score-cell.sov-column {
   font-weight: 600;
 }
 .comparison-table .best-score {
@@ -618,7 +635,7 @@ a:focus-visible, .variant-button:focus-visible, .comparison-controls button:focu
   background: #d2e3fc;
   box-shadow: inset 0 0 0 1px #00000014;
 }
-.legend-launa {
+.legend-sov {
   background: #f5f9ff;
   border: 1px solid #8ab4f8;
 }
@@ -873,19 +890,19 @@ footer .status-dot {
       <main>
         <div class="intro">
           <div class="headline">
-            <h1><em>Launa:</em> Sovereign AI Voice Models from Salesforce</h1>
+            <h1><em>SOV:</em> Sovereign AI Voice Models from Salesforce</h1>
           </div>
         </div>
         <div class="sound-stage">
-          <div class="launa-art">
+          <div class="sov-art">
             <canvas id="soundwave" aria-hidden="true"></canvas>
             <p class="art-wordmark">
               <span class="art-kicker">Introducing</span>
-              Launa Omni v1 and Launa Transcribe v2
+              SOV-Omni-1 and SOV-Transcribe-1
             </p>
           </div>
           <div class="stage-bottom">
-            <span>LAUNA <span class="label-divider">/</span> VOICE AI</span>
+            <span>SOV <span class="label-divider">/</span> SOVEREIGN VOICE AI</span>
           </div>
         </div>
         <section class="model-card" id="model-card" aria-labelledby="model-heading">
@@ -893,8 +910,7 @@ footer .status-dot {
             <div>
               <p class="eyebrow">MODEL CARD</p>
               <h2 id="model-heading">
-                Launa
-                <span class="variant-picker" data-picker="variant">
+                SOV-<span class="variant-picker" data-picker="variant">
                   <button
                     type="button"
                     class="variant-button"
@@ -903,7 +919,7 @@ footer .status-dot {
                     aria-expanded="false"
                     aria-controls="variant-menu"
                   >
-                    <span id="variant-label" data-picker-label>Omni</span>
+                    <span id="variant-label" data-picker-label>Omni-1</span>
                     <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
                       <path
                         d="m3 4.5 3 3 3-3"
@@ -915,8 +931,8 @@ footer .status-dot {
                     </svg>
                   </button>
                   <span class="variant-menu" id="variant-menu" role="menu" aria-labelledby="variant-button">
-                    <button type="button" role="menuitemradio" aria-checked="true" tabindex="-1">Omni</button>
-                    <button type="button" role="menuitemradio" aria-checked="false" tabindex="-1">Transcribe</button>
+                    <button type="button" role="menuitemradio" aria-checked="true" tabindex="-1" data-value="Omni">Omni-1</button>
+                    <button type="button" role="menuitemradio" aria-checked="false" tabindex="-1" data-value="Transcribe">Transcribe-1</button>
                   </span>
                 </span>
                 <span class="heading-omni">in comparison:</span>
@@ -963,18 +979,18 @@ footer .status-dot {
           <div class="comparison-frame">
             <div class="comparison-scroll" id="model-comparison" role="region" aria-label="Voice model benchmark comparison" aria-describedby="comparison-notes" tabindex="0">
               <table class="comparison-table">
-                <caption class="visually-hidden">Launa Omni v1 benchmark comparison. Scores reported by the Launa team. Highlighted cells mark the best reported score in a comparable row.</caption>
+                <caption class="visually-hidden">SOV-Omni-1 benchmark comparison. Scores reported by the SOV team. Highlighted cells mark the best reported score in a comparable row.</caption>
                 <colgroup><col class="benchmark-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /><col class="model-column" /></colgroup>
                 <thead><tr><th scope="col" class="benchmark-name">Benchmark</th>
-<th scope="col" class="model-name launa-column">Launa Omni v1<small>Salesforce</small></th>
+<th scope="col" class="model-name sov-column">SOV-Omni-1<small>Salesforce</small></th>
 <th scope="col" class="model-name">Grok Voice 2.0<small>xAI</small></th>
 <th scope="col" class="model-name">Inkling (large)<small>Thinking Machines</small></th>
 <th scope="col" class="model-name">GPT-Live-1<small>OpenAI</small></th>
 <th scope="col" class="model-name">GPT-Realtime-2<small>OpenAI</small></th>
 </tr></thead>
-<tbody><tr class="category-row"><th scope="rowgroup"><span>General voice benchmarks</span></th><td class="launa-column"></td><td colspan="4"></td></tr>
+<tbody><tr class="category-row"><th scope="rowgroup"><span>General voice benchmarks</span></th><td class="sov-column"></td><td colspan="4"></td></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://matthewcym.github.io/VoiceBench/">VoiceBench</a><small>Spoken instruction &amp; safety</small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">90.60%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">90.60%</span></td>
 
 <td class="score-cell"><span class="score-value">85.8%</span></td>
 <td class="score-cell"><span class="score-value">76.6%</span></td>
@@ -982,7 +998,7 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">78.2%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://labs.scale.com/leaderboard/audiomc">Audio MultiChallenge</a><small>Natural multi-turn dialogue</small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">59.07%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">59.07%</span></td>
 
 <td class="score-cell"><span class="score-value">35.2%</span></td>
 <td class="score-cell"><span class="score-value">46.2%</span></td>
@@ -990,9 +1006,9 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">30.5%</span></td>
 </tr>
 </tbody>
-<tbody><tr class="category-row"><th scope="rowgroup"><span>Service agents &amp; tool calling</span></th><td class="launa-column"></td><td colspan="4"></td></tr>
+<tbody><tr class="category-row"><th scope="rowgroup"><span>Service agents &amp; tool calling</span></th><td class="sov-column"></td><td colspan="4"></td></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://taubench.com/leaderboard/?benchmark=voice">Tau Voice</a><small>Customer-service task completion · Pass<sup>1</sup></small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">62.3%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">62.3%</span></td>
 
 <td class="score-cell"><span class="score-value">60.7%</span></td>
 <td class="score-cell"><span class="score-value">58.80%</span></td>
@@ -1000,7 +1016,7 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">34.4%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://servicenow.github.io/eva/#results">EVA Bench</a><small>Customer-service accuracy &amp; experience · mean score</small></th>
-<td class="score-cell launa-column"><span class="score-value">0.7000</span><small>0.6449 / 0.7551</small></td>
+<td class="score-cell sov-column"><span class="score-value">0.7000</span><small>0.6449 / 0.7551</small></td>
 
 <td class="score-cell best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">0.7385</span><small>0.7203 / 0.7566</small></td>
 <td class="score-cell"><span class="score-value">0.6296</span><small>0.6879 / 0.5715</small></td>
@@ -1008,7 +1024,7 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">0.6726</span><small>0.6010 / 0.7456</small></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Multilingual tool calling<small>Spoken function calling · Speech-BFCL</small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">72.9%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">72.9%</span></td>
 
 <td class="score-cell"><span class="score-value">64.8%</span></td>
 <td class="score-cell"><span class="score-value">65.8%</span></td>
@@ -1016,9 +1032,9 @@ footer .status-dot {
 <td class="score-cell"><span class="score-value">65.2%</span></td>
 </tr>
 </tbody>
-<tbody><tr class="category-row"><th scope="rowgroup"><span>Employee agents · internal Slack</span></th><td class="launa-column"></td><td colspan="4"></td></tr>
+<tbody><tr class="category-row"><th scope="rowgroup"><span>Employee agents · internal Slack</span></th><td class="sov-column"></td><td colspan="4"></td></tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name">Slackbot Voice<small>Workplace assistant tasks · internal eval</small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">96.5%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best reported score: </span><span class="score-value">96.5%</span></td>
 
 <td class="score-cell"><span class="score-value">50.0%</span></td>
 <td class="score-cell"><span class="score-value">49.2%</span></td>
@@ -1027,26 +1043,27 @@ footer .status-dot {
 </tr>
 </tbody>
               </table>
-              <div class="launa-outline" aria-hidden="true"></div>
+              <div class="sov-outline" aria-hidden="true"></div>
             </div>
           </div>
           <div class="comparison-legend" aria-label="Table legend">
             <span><i class="legend-best" aria-hidden="true"></i>Best reported score per row</span>
-            <span><i class="legend-launa" aria-hidden="true"></i>Launa Omni v1</span>
+            <span><i class="legend-sov" aria-hidden="true"></i>SOV-Omni-1</span>
             <span>— Not reported</span>
           </div>
           <div class="comparison-notes" id="comparison-notes">
-            <p>Results reported by the Launa team. EVA covers clean customer service only; the smaller values show EVA-A / EVA-X. Scores use each benchmark’s own scale.</p>
+            <p>Results reported by the SOV team. EVA covers clean customer service only; the smaller values show EVA-A / EVA-X. Scores use each benchmark’s own scale.</p>
+            <p>SOV-Omni-1 model weights are coming soon to Hugging Face.</p>
           </div>
           </div>
           <div class="comparison-panel" id="panel-transcribe" data-variant="Transcribe" data-controls="below" hidden>
             <div class="comparison-frame">
               <div class="comparison-scroll" id="transcribe-comparison" role="region" aria-label="Speech recognition benchmark comparison" aria-describedby="transcribe-notes" tabindex="0">
                 <table class="comparison-table" style="--model-count: 10">
-                  <caption class="visually-hidden">Launa Transcribe v2 English speech recognition comparison against commercial and open-source models. Lower WER and UER are better. Highlighted cells mark the best score in each row.</caption>
+                  <caption class="visually-hidden">SOV-Transcribe-1 English speech recognition comparison against commercial and open-source models. Lower WER and UER are better. Highlighted cells mark the best score in each row.</caption>
                   <colgroup><col class="benchmark-column" /><col class="model-column" /><col class="model-column" data-source="closed" /><col class="model-column" data-source="open" /><col class="model-column" data-source="closed" /><col class="model-column" data-source="closed" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /><col class="model-column" data-source="open" /></colgroup>
 <thead><tr><th scope="col" class="benchmark-name">Benchmark</th>
-<th scope="col" class="model-name launa-column">Launa Transcribe v2<small>Salesforce</small></th>
+<th scope="col" class="model-name sov-column"><a href="https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1">SOV-Transcribe-1</a><small>Salesforce</small></th>
 <th scope="col" class="model-name" data-source="closed">Ink 2<small>Cartesia</small></th>
 <th scope="col" class="model-name" data-source="open">Voxtral Small<small>Mistral AI</small></th>
 <th scope="col" class="model-name" data-source="closed">Universal-3.5 Pro<small>AssemblyAI</small></th>
@@ -1059,7 +1076,7 @@ footer .status-dot {
 </tr></thead>
 <tbody>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://github.com/sierra-research/mu-bench">MU-Bench English</a><small>Meaning-changing UER · 817 English utterances</small></th>
-<td class="score-cell launa-column"><span class="score-value">2.57%</span></td>
+<td class="score-cell sov-column"><span class="score-value">2.57%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">8.20%</span></td>
 <td class="score-cell" data-source="open"><span class="score-value">2.33%</span></td>
 <td class="score-cell best-score" data-source="closed"><span class="visually-hidden">Best score: </span><span class="score-value">2.08%</span></td>
@@ -1071,7 +1088,7 @@ footer .status-dot {
 <td class="score-cell" data-source="open"><span class="score-value">6.85%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://github.com/DSP-AGH/HALAS">HALAS corrected test</a><small>Corrected test references</small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">28.70%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">28.70%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">30.73%</span></td>
 <td class="score-cell" data-source="open"><span class="score-value">30.03%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">29.43%</span></td>
@@ -1083,7 +1100,7 @@ footer .status-dot {
 <td class="score-cell" data-source="open"><span class="score-value">60.40%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/google/fleurs">FLEURS English</a><small>English test split</small></th>
-<td class="score-cell launa-column"><span class="score-value">3.33%</span></td>
+<td class="score-cell sov-column"><span class="score-value">3.33%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">4.72%</span></td>
 <td class="score-cell" data-source="open"><span class="score-value">2.67%</span></td>
 <td class="score-cell best-score" data-source="closed"><span class="visually-hidden">Best score: </span><span class="score-value">2.55%</span></td>
@@ -1095,7 +1112,7 @@ footer .status-dot {
 <td class="score-cell" data-source="open"><span class="score-value">4.01%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/ArtificialAnalysis/VoxPopuli-Cleaned-AA">VoxPopuli-Cleaned-AA</a><small>628 English clips</small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">1.66%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">1.66%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">2.06%</span></td>
 <td class="score-cell" data-source="open"><span class="score-value">2.28%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">2.22%</span></td>
@@ -1107,7 +1124,7 @@ footer .status-dot {
 <td class="score-cell" data-source="open"><span class="score-value">3.00%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/ArtificialAnalysis/Earnings22-Cleaned-AA">Earnings22-Cleaned-AA</a><small>6 earnings calls</small></th>
-<td class="score-cell launa-column"><span class="score-value">4.94%</span></td>
+<td class="score-cell sov-column"><span class="score-value">4.94%</span></td>
 <td class="score-cell best-score" data-source="closed"><span class="visually-hidden">Best score: </span><span class="score-value">4.77%</span></td>
 <td class="score-cell" data-source="open"><span class="score-value">5.94%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">7.11%</span></td>
@@ -1119,7 +1136,7 @@ footer .status-dot {
 <td class="score-cell" data-source="open"><span class="score-value">8.09%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://huggingface.co/datasets/VoiceArena/MonsoonASR-Open-ASR-leaderboard-en-IN">Monsoon Open ASR en-IN</a><small>Indian English public test</small></th>
-<td class="score-cell launa-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">4.17%</span></td>
+<td class="score-cell sov-column best-score"><span class="visually-hidden">Best score: </span><span class="score-value">4.17%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">5.03%</span></td>
 <td class="score-cell" data-source="open"><span class="score-value">4.43%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">4.21%</span></td>
@@ -1131,7 +1148,7 @@ footer .status-dot {
 <td class="score-cell" data-source="open"><span class="score-value">4.80%</span></td>
 </tr>
 <tr class="benchmark-row"><th scope="row" class="benchmark-name"><a href="https://groups.inf.ed.ac.uk/ami/corpus/">AMI IHM test</a><small>Individual headset microphone</small></th>
-<td class="score-cell launa-column"><span class="score-value">14.00%</span></td>
+<td class="score-cell sov-column"><span class="score-value">14.00%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">11.54%</span></td>
 <td class="score-cell" data-source="open"><span class="score-value">18.06%</span></td>
 <td class="score-cell" data-source="closed"><span class="score-value">15.03%</span></td>
@@ -1144,15 +1161,16 @@ footer .status-dot {
 </tr>
 </tbody>
 </table>
-                <div class="launa-outline" aria-hidden="true"></div>
+                <div class="sov-outline" aria-hidden="true"></div>
               </div>
             </div>
             <div class="comparison-legend" aria-label="Table legend">
               <span><i class="legend-best" aria-hidden="true"></i>Best score per row</span>
-              <span><i class="legend-launa" aria-hidden="true"></i>Launa Transcribe v2</span>
+              <span><i class="legend-sov" aria-hidden="true"></i>SOV-Transcribe-1</span>
               <span>↓ Lower WER / UER is better</span>
             </div>
             <div class="comparison-notes" id="transcribe-notes">
+              <p>Model weights are available on <a href="https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1">Hugging Face</a>.</p>
               <p>Scores follow the public <a href="https://artificialanalysis.ai/methodology/speech-to-text">Artificial Analysis methodology</a>: reference and hypothesis are normalized, WER is computed per clip, then averaged weighted by audio duration. Monsoon en-IN reports duration-weighted WER rather than the dataset’s corpus WER.</p>
             </div>
           </div>
@@ -1160,7 +1178,7 @@ footer .status-dot {
         <section class="team" aria-labelledby="team-heading">
           <p class="eyebrow">THE TEAM</p>
           <h2 id="team-heading">Salesforce AI Research - Resonance</h2>
-          <p>Launa was trained in partnership with Arcanum.</p>
+          <p>The SOV models were trained in partnership with Arcanum.</p>
           <ul class="team-members" role="list">
             <li>Jason Lee</li>
             <li>Alexey Dyakov</li>
@@ -1187,7 +1205,7 @@ footer .status-dot {
       </main>
       <footer>
         <span class="footer-identity"
-          >Launa<span class="footer-divider"></span>Voice Models from Salesforce x Arcanum</span
+          >SOV<span class="footer-divider"></span>Voice Models from Salesforce x Arcanum</span
         >
         <p id="benchmark-results">
           <span class="status-dot"></span> <a href="#model-card">Explore the model card ↑</a>
@@ -1211,36 +1229,45 @@ footer .status-dot {
   function draw() {
     context.clearRect(0, 0, width, height);
     const middle = height * 0.53;
-    const amplitude = height * (reducedMotion.matches ? 0.19 : 0.25);
+    const amplitude = height * (reducedMotion.matches ? 0.17 : 0.22);
     const samples = Math.ceil(width / 4);
-    const ribbons = 32;
+    const ribbons = 40;
 
     for (let ribbon = 0; ribbon < ribbons; ribbon++) {
       const layer = ribbon / (ribbons - 1);
+      const signal = ribbon === Math.round(ribbons * 0.62);
       context.beginPath();
       for (let sample = 0; sample <= samples; sample++) {
         const x = sample / samples;
-        const envelope = 0.3 + 0.7 * Math.pow(Math.sin(x * Math.PI), 0.7);
-        const carrier = Math.sin(x * Math.PI * 4 - phase + layer * 2.5);
+        const envelope = 0.15 + 0.85 * Math.pow(Math.sin(x * Math.PI), 1.4);
+        const carrier = Math.sin(x * Math.PI * 3 - phase + layer * 2.2);
         const harmonic =
-          Math.sin(x * Math.PI * 7 + phase * 0.6 + layer * 1.8) * 0.24;
-        const spread = (layer - 0.5) * height * 0.2;
+          Math.sin(x * Math.PI * 9 + phase * 0.5 + layer * 1.4) * 0.12;
+        const spread = (layer - 0.5) * height * 0.16;
         const y = middle + (carrier + harmonic) * amplitude * envelope + spread;
         if (sample === 0) context.moveTo(x * width, y);
         else context.lineTo(x * width, y);
       }
-      const warm = ribbon > 22;
-      context.strokeStyle = warm
-        ? `rgba(138, 180, 248, ${0.16 + layer * 0.1})`
-        : `rgba(210, 227, 252, ${0.12 + layer * 0.17})`;
-      context.lineWidth = ribbon % 8 === 0 ? 1.2 : 0.7;
+      // Fade the ribbons at the outer edges of the bundle so it reads as one dense band.
+      const edge = Math.sin(layer * Math.PI);
+      if (signal) {
+        context.strokeStyle = "rgba(122, 162, 230, 0.75)";
+        context.lineWidth = 1.1;
+        context.shadowColor = "rgba(122, 162, 230, 0.6)";
+        context.shadowBlur = 8;
+      } else {
+        context.strokeStyle = `rgba(176, 192, 218, ${0.05 + edge * 0.2})`;
+        context.lineWidth = ribbon % 10 === 0 ? 0.9 : 0.6;
+        context.shadowBlur = 0;
+      }
       context.stroke();
     }
+    context.shadowBlur = 0;
   }
 
   function animate(time) {
     if (lastTime !== null) {
-      const speed = reducedMotion.matches ? 0.00065 : 0.00115;
+      const speed = reducedMotion.matches ? 0.0004 : 0.0007;
       phase += Math.min(time - lastTime, 64) * speed;
     }
     lastTime = time;
@@ -1350,7 +1377,7 @@ footer .status-dot {
     if (transcribeHeading) transcribeHeading.hidden = variant !== "Transcribe";
   }
 
-  // Show only open- or closed-source columns (Launa always stays) and re-mark each row's best score.
+  // Show only open- or closed-source columns (SOV always stays) and re-mark each row's best score.
   function filterSource(source) {
     if (!transcribeTable) return;
     for (const element of transcribeTable.querySelectorAll("[data-source]")) {
